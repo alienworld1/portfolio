@@ -11,6 +11,15 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'blender-pro';
+  src:
+    url('/fonts/BlenderPro-Bold.woff2') format('woff2'),
+    url('/fonts/BlenderPro-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
