@@ -84,3 +84,8 @@
     @apply bg-background text-foreground;
   }
 }
+
+.skill-card:hover {
+  background-color: var(--hover-color) !important;
+  opacity: 0.9;
+}

@@ -57,7 +57,7 @@ function Portfolio({ children }: { children: ReactNode }) {
           </ul>
         </nav>
       </header>
-      <main>{children}</main>
+      <main className="max-h-96 overflow-auto">{children}</main>
     </div>
   );
 }
