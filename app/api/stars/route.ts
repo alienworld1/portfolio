@@ -1,8 +1,5 @@
 import { type NextRequest } from 'next/server';
-import {
-  filterStarsByLocation,
-  getStarPlottingDetails,
-} from '@/app/utils/stars';
+import { filterStarsByLocation }from '@/app/utils/stars';
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
