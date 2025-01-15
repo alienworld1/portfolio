@@ -1,8 +1,5 @@
-import { type NextRequest } from 'next/server';
-import {
-  filterStarsByLocation,
-  getStarPlottingDetails,
-} from '@/app/utils/stars';
+import { type NextRequest } from "next/server";
+import { filterStarsByLocation, getStarPlottingDetails } from "@/app/utils/stars";
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
@@ -12,10 +9,10 @@ export async function GET(request: NextRequest) {
   const time = searchParams.get('time');
 
   if (!la || !lo || !time) {
-    return {
+    return new Response(JSON.stringify({ error: 'Missing required query parameters' }), {
       status: 400,
-      body: 'Missing required query parameters',
-    };
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 
   const latitude = parseFloat(la);
@@ -23,19 +20,17 @@ export async function GET(request: NextRequest) {
   const datetime = new Date(time);
 
   if (isNaN(longitude) || isNaN(latitude) || isNaN(datetime.getTime())) {
-    return {
+    return new Response(JSON.stringify({ error: 'Invalid query parameters' }), {
       status: 400,
-      body: 'Invalid query parameters',
-    };
+      headers: { 'Content-Type': 'application/json' },
+    });
   }
 
   const stars = filterStarsByLocation(latitude, longitude, datetime);
-  const starDetails = stars.map(star =>
-    getStarPlottingDetails(star, latitude, longitude, datetime),
-  );
+  const starDetails = stars.map(star => getStarPlottingDetails(star, latitude, longitude, datetime));
 
-  return {
+  return new Response(JSON.stringify(starDetails), {
     status: 200,
-    body: starDetails,
-  };
+    headers: { 'Content-Type': 'application/json' },
+  });
 }
