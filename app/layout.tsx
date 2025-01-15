@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
 
+import NightSky from './components/night-sky';
+
 export const metadata: Metadata = {
   title: 'Personal Homepage',
   description: 'My personal portfolio',
@@ -13,7 +15,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-gradient-to-b from-black via-blue-950 to-indigo-950 relative font-body">
+      <body className="font-body relative h-screen">
+        <NightSky />
         {children}
       </body>
     </html>

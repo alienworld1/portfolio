@@ -102,12 +102,19 @@ function getStarSize(star: Star): number {
   return Math.max(4 - (magnitude + 1) / 2, 1);
 }
 
+export type StarPlottingDetails = {
+  x: number;
+  y: number;
+  color: Color;
+  size: number;
+};
+
 export function getStarPlottingDetails(
   star: Star,
   latitude: number,
   longitude: number,
   time: Date,
-): { x: number; y: number; color: Color; size: number } {
+): StarPlottingDetails {
   const dec = parseDeclination(star.Dec);
   const ra = parseRA(star.RA);
 
@@ -135,12 +142,12 @@ export function getStarPlottingDetails(
   let azimuth = (Math.atan2(sinAz, cosAz) * 180) / Math.PI;
   if (azimuth < 0) azimuth += 360;
 
-  // Convert to screen coordinates (x: 0-1, y: 0-1)
-  const x = azimuth / 360;
-  const y = altitude / 90;
+  // Convert to screen coordinates (percentage)
+  const x = azimuth * 100 / 360;
+  const y = altitude * 100 / 90;
 
   const color = getStarColor(star);
   const size = getStarSize(star);
 
-  return { x, y, color, size };
+  return { x , y, color, size };
 }
