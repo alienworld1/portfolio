@@ -1,23 +1,15 @@
 import { motion } from 'motion/react';
-import { Star as StarType, getStarPlottingDetails } from '../utils/stars';
+import { Star as StarType } from '../utils/stars';
 
 type StarProps = {
   star: StarType;
-  location: {
-    latitude: number;
-    longitude: number;
-  };
-  time: Date;
+  x: number;
+  y: number;
+  color: { red: number; green: number; blue: number };
+  size: number;
 };
 
-export default function Star({ star, location, time }: StarProps) {
-  const { x, y, color, size } = getStarPlottingDetails(
-    star,
-    location.latitude,
-    location.longitude,
-    time,
-  );
-
+export default function Star({ x, y, color, size }: StarProps) {
   return (
     <motion.div
       className="absolute rounded-full"
