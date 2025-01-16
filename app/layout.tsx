@@ -19,9 +19,7 @@ export default function RootLayout({
       <body className="font-body relative h-screen">
         <NightSky />
         <div className="absolute inset-0 flex flex-col items-center justify-center h-screen">
-          <Portfolio>
-            {children}
-          </Portfolio>
+          <Portfolio>{children}</Portfolio>
         </div>
       </body>
     </html>
