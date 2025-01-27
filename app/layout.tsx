@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
 
-import NightSky from './components/night-sky';
 import Portfolio from './components/portfolio';
+import NightSkyWrapper from './components/night-sky-wrapper';
 
 export const metadata: Metadata = {
   title: 'Personal Homepage',
@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-body relative h-screen">
-        <NightSky />
+        <NightSkyWrapper />
         <div className="absolute inset-0 flex flex-col items-center justify-center h-screen">
           <Portfolio>{children}</Portfolio>
         </div>
