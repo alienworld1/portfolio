@@ -52,16 +52,13 @@ function isStarVisible(
 }
 
 // Returns the visible stars at the provided location and time
-// and right now, for performance reasons, we are only
-// returning the named stars
 export function filterStarsByLocation(
   latitude: number,
   longitude: number,
   time: Date,
 ): Star[] {
-  return stars.filter(
-    star =>
-      isStarVisible(latitude, longitude, time, star.Dec, star.RA) && star.N,
+  return stars.filter(star =>
+    isStarVisible(latitude, longitude, time, star.Dec, star.RA),
   );
 }
 
@@ -147,8 +144,8 @@ export function getStarPlottingDetails(
   if (azimuth < 0) azimuth += 360;
 
   // Convert to screen coordinates (percentage)
-  const x = (azimuth * 100) / 360;
-  const y = (altitude * 100) / 90;
+  const x = azimuth / 360;
+  const y = altitude / 90;
 
   const color = getStarColor(star);
   const size = getStarSize(star);
