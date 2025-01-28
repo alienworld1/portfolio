@@ -5,7 +5,7 @@ import Portfolio from './components/portfolio';
 import NightSkyWrapper from './components/night-sky-wrapper';
 
 export const metadata: Metadata = {
-  title: 'Personal Homepage',
+  title: 'Aditya',
   description: 'My personal portfolio',
 };
 

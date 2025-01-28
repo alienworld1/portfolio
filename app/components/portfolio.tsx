@@ -50,6 +50,7 @@ function Portfolio({ children }: { children: ReactNode }) {
               <Link
                 href="/resume"
                 className="text-sky-300 hover:text-sky-200 transition-colors text-lg"
+                target="_blank"
               >
                 Resume
               </Link>
