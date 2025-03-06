@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 function Portfolio({ children }: { children: ReactNode }) {
   return (
-    <div className="flex flex-col bg-slate-900/40 backdrop-blur-sm px-8 pb-8 pt-4 rounded-lg mx-8 sm:mx-36 sm:my-8">
+    <div className="flex flex-col bg-slate-900/40 backdrop-blur-sm px-8 pb-8 pt-4 rounded-lg mx-8 sm:mx-36 max-h-[90vh]">
       <header className="flex mb-4 justify-between items-center gap-8">
         <Link
           className="flex items-center p-2 rounded-lg hover:bg-slate-800/50 transition-colors"
@@ -58,7 +58,7 @@ function Portfolio({ children }: { children: ReactNode }) {
           </ul>
         </nav>
       </header>
-      <main className="max-h-96 overflow-auto">{children}</main>
+      <main className="overflow-auto">{children}</main>
     </div>
   );
 }
